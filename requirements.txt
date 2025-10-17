@@ -1,13 +1,20 @@
+pip>=24.2
+setuptools>=68
+wheel>=0.41
+
+# API
 fastapi==0.115.5
 uvicorn[standard]==0.30.6
 
-# ML & scientific stack
+# ML & scientific stack (runtime inference only)
 numpy==1.23.5
 scipy==1.14.1
 scikit-learn==1.5.2
 joblib==1.4.2
+threadpoolctl==3.5.0
 
-# Thai NLP & utilities
+# Thai NLP & vectors
+gensim==4.3.3
 pythainlp==5.0.4
 emoji==2.12.1
 
@@ -15,24 +22,3 @@ emoji==2.12.1
 pydantic==2.9.2
 python-multipart==0.0.9
 requests==2.32.3
-setuptools>=65
-wheel>=0.41
-fastapi
-uvicorn[standard]
-scikit-learn
-numpy==1.23.5
-scipy
-pandas
-seaborn
-matplotlib
-joblib
-gensim
-pythainlp
-emoji
-wordcloud
-nltk
-
-
-
-
-
