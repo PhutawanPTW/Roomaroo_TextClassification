@@ -1,0 +1,31 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+*.cache
+
+# Virtual env / local env
+venv/
+.env
+.env.*
+.envrc
+
+# Jupyter runtime
+.ipynb_checkpoints/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Large local data not needed in deploy
+Data/
+images/
+
+# Keep models for deploy (do NOT ignore)
+# saved_models/
+
