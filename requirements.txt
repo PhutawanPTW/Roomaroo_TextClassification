@@ -8,7 +8,7 @@ uvicorn[standard]==0.30.6
 
 # ML & scientific stack (runtime inference only)
 numpy==1.23.5
-scipy==1.14.1
+scipy==1.13.1
 scikit-learn==1.5.2
 joblib==1.4.2
 threadpoolctl==3.5.0
