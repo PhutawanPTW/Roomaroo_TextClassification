@@ -1,11 +1,8 @@
 services:
   - type: web
     name: roomaroo-textclassification
-    env: python
+    runtime: python
     plan: free
-    envVars:
-      - key: PYTHON_VERSION
-        value: 3.11.9
     buildCommand: |
       python --version
       pip install --upgrade pip setuptools wheel
