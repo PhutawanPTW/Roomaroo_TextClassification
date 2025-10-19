@@ -95,6 +95,17 @@ def extract_features(text):
         'avg_word_length': sum(len(word) for word in words) / max(word_count, 1),
         'text_length': len(text)
     }
+
+    # ===== เพิ่มส่วนนี้ =====
+    # นับจำนวนครั้งที่มีการพิมพ์ตัวอักษรซ้ำ 3 ตัวขึ้นไป (เช่น "มากกกก")
+    repeated_chars_pattern = re.findall(r'([ก-๙a-zA-Z])\1{2,}', text)
+    features['repeated_chars_count'] = len(repeated_chars_pattern)
+    
+    # นับจำนวนตัวอักษรซ้ำทั้งหมด (รวมความยาวของการซ้ำ)
+    total_repeated_length = sum(len(match) + 1 for match in repeated_chars_pattern)
+    features['repeated_chars_intensity'] = total_repeated_length
+    # ===== จบส่วนที่เพิ่ม =====
+
     word_counts = Counter(words)
     repeated_words = sum(1 for count in word_counts.values() if count > 1)
     features['repeated_words_ratio'] = repeated_words / max(word_count, 1)
@@ -183,7 +194,7 @@ async def predict_review(review: ReviewInput):
                 features['exclamation_count'], features['question_count'], features['sentence_count'],
                 features['word_count'], features['avg_word_length'], features['repeated_words_ratio'],
                 features['negation_count'], features['punctuation_ratio'], features['text_length'],
-                features['words_per_sentence']
+                features['words_per_sentence'], features['repeated_chars_count'], features['repeated_chars_intensity']
             ]])
             additional_features_scaled = features_scaler_vec.transform(additional_features)
             if not sparse.issparse(additional_features_scaled):
