@@ -21,7 +21,7 @@ app = FastAPI(debug=True)
 # เพิ่ม CORS เพื่อให้ Angular frontend สามารถเชื่อมต่อได้
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:4200"],  # URL ของ Angular app
+    allow_origins=["http://localhost:4200", "https://your-website-domain.com"],  # URL ของ Angular app
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
